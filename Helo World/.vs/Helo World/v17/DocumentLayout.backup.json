@@ -1,0 +1,36 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\ADIT\\UNJA\\PEMVIS\\Helo World\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{CEA06678-A0C8-42C1-BAB6-7873D6DF20CD}|Helo World\\Helo World.csproj|c:\\adit\\unja\\pemvis\\helo world\\helo world\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{CEA06678-A0C8-42C1-BAB6-7873D6DF20CD}|Helo World\\Helo World.csproj|solutionrelative:helo world\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.cs [Design]",
+              "DocumentMoniker": "C:\\ADIT\\UNJA\\PEMVIS\\Helo World\\Helo World\\Form1.cs",
+              "RelativeDocumentMoniker": "Helo World\\Form1.cs",
+              "ToolTip": "C:\\ADIT\\UNJA\\PEMVIS\\Helo World\\Helo World\\Form1.cs [Design]",
+              "RelativeToolTip": "Helo World\\Form1.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-24T21:07:09.597Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
