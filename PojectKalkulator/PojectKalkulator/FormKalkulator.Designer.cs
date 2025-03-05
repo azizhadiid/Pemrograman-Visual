@@ -94,6 +94,7 @@
             buttonTitik.TabIndex = 2;
             buttonTitik.Text = ".";
             buttonTitik.UseVisualStyleBackColor = false;
+            buttonTitik.Click += buttonTitik_Click;
             // 
             // buttonSamaDengan
             // 
@@ -243,6 +244,7 @@
             buttonKali.TabIndex = 15;
             buttonKali.Text = "x";
             buttonKali.UseVisualStyleBackColor = false;
+            buttonKali.Click += buttonKali_Click;
             // 
             // button8
             // 
@@ -302,6 +304,7 @@
             buttonBagi.TabIndex = 19;
             buttonBagi.Text = "/";
             buttonBagi.UseVisualStyleBackColor = false;
+            buttonBagi.Click += buttonBagi_Click;
             // 
             // buttonClear
             // 
@@ -316,6 +319,7 @@
             buttonClear.TabIndex = 18;
             buttonClear.Text = "C";
             buttonClear.UseVisualStyleBackColor = false;
+            buttonClear.Click += buttonClear_Click;
             // 
             // buttonDelete
             // 
@@ -330,6 +334,7 @@
             buttonDelete.TabIndex = 17;
             buttonDelete.Text = "Del";
             buttonDelete.UseVisualStyleBackColor = false;
+            buttonDelete.Click += buttonDelete_Click;
             // 
             // buttonOnOff
             // 
