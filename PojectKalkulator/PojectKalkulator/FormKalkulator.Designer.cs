@@ -65,6 +65,7 @@
             buttonPlusMinus.TabIndex = 0;
             buttonPlusMinus.Text = "+/-";
             buttonPlusMinus.UseVisualStyleBackColor = false;
+            buttonPlusMinus.Click += buttonPlusMinus_Click;
             // 
             // buttonNol
             // 

@@ -78,7 +78,7 @@ namespace PojectKalkulator
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             // menyimpan nilai yang ada di layar ke variabel temp;
-            temp = Convert.ToDouble(textBox1.Text);
+            temp = Convert.ToDouble(textBox1.Text.Replace(",", "."), System.Globalization.CultureInfo.InvariantCulture);
             // menyimpan jenis operasi adalah penjumlahan;
             operasi = "+";
             // mereset display menjadi kosong;
@@ -88,36 +88,34 @@ namespace PojectKalkulator
         private void buttonSamaDengan_Click(object sender, EventArgs e)
         {
             double hasil = 0.0;
+            double angkaInput = Convert.ToDouble(textBox1.Text.Replace(",", "."), System.Globalization.CultureInfo.InvariantCulture);
+
             if (operasi == "+")
             {
-                hasil = temp + Convert.ToDouble(textBox1.Text);
-                strDisplay = hasil.ToString();
-                textBox1.Text = strDisplay;
+                hasil = temp + angkaInput;
             }
             else if (operasi == "-")
             {
-                hasil = temp - Convert.ToDouble(textBox1.Text);
-                strDisplay = hasil.ToString();
-                textBox1.Text = strDisplay;
+                hasil = temp - angkaInput;
             }
             else if (operasi == "x")
             {
-                hasil = temp * Convert.ToDouble(textBox1.Text);
-                strDisplay = hasil.ToString();
-                textBox1.Text = strDisplay;
+                hasil = temp * angkaInput;
             }
             else if (operasi == "/")
             {
-                hasil = temp / Convert.ToDouble(textBox1.Text);
-                strDisplay = hasil.ToString();
-                textBox1.Text = strDisplay;
+                hasil = temp / angkaInput;
             }
+
+            // Mengubah hasil menjadi format sesuai sistem lokal (titik/koma)
+            strDisplay = hasil.ToString(System.Globalization.CultureInfo.CurrentCulture);
+            textBox1.Text = strDisplay;
         }
 
         private void buttonKurang_Click(object sender, EventArgs e)
         {
             // menyimpan nilai yang ada di layar ke variabel temp;
-            temp = Convert.ToDouble(textBox1.Text);
+            temp = Convert.ToDouble(textBox1.Text.Replace(",", "."), System.Globalization.CultureInfo.InvariantCulture);
             // menyimpan jenis operasi adalah pengurangan;
             operasi = "-";
             // mereset display menjadi kosong;
@@ -127,7 +125,7 @@ namespace PojectKalkulator
         private void buttonKali_Click(object sender, EventArgs e)
         {
             // menyimpan nilai yang ada di layar ke variabel temp;
-            temp = Convert.ToDouble(textBox1.Text);
+            temp = Convert.ToDouble(textBox1.Text.Replace(",", "."), System.Globalization.CultureInfo.InvariantCulture);
             // menyimpan jenis operasi adalah pengalian;
             operasi = "x";
             // mereset display menjadi kosong;
@@ -137,7 +135,7 @@ namespace PojectKalkulator
         private void buttonBagi_Click(object sender, EventArgs e)
         {
             // menyimpan nilai yang ada di layar ke variabel temp;
-            temp = Convert.ToDouble(textBox1.Text);
+            temp = Convert.ToDouble(textBox1.Text.Replace(",", "."), System.Globalization.CultureInfo.InvariantCulture);
             // menyimpan jenis operasi adalah pembagian;
             operasi = "/";
             // mereset display menjadi kosong;
@@ -171,11 +169,28 @@ namespace PojectKalkulator
 
         private void buttonTitik_Click(object sender, EventArgs e)
         {
-            // Cek apakah strDisplay sudah mengandung titik
-            if (!strDisplay.Contains("."))
+            string decimalSeparator = System.Globalization.CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator;
+
+            if (!strDisplay.Contains(decimalSeparator))
             {
-                // Jika belum ada titik, tambahkan titik
-                strDisplay += ".";
+                strDisplay += decimalSeparator;
+                textBox1.Text = strDisplay;
+            }
+        }
+
+        private void buttonPlusMinus_Click(object sender, EventArgs e)
+        {
+            // Pastikan textBox1 tidak kosong atau hanya nol
+            if (!string.IsNullOrEmpty(textBox1.Text) && textBox1.Text != "0")
+            {
+                // Konversi angka ke double
+                double angka = Convert.ToDouble(textBox1.Text.Replace(",", "."), System.Globalization.CultureInfo.InvariantCulture);
+
+                // Balikkan tanda plus/minus
+                angka *= -1;
+
+                // Simpan kembali ke strDisplay dan tampilkan di textBox1
+                strDisplay = angka.ToString(System.Globalization.CultureInfo.CurrentCulture);
                 textBox1.Text = strDisplay;
             }
         }
