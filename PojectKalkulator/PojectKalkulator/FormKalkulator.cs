@@ -1,4 +1,5 @@
 using System;
+using System.Drawing;
 using System.Globalization;
 using System.Windows.Forms;
 
@@ -9,6 +10,7 @@ namespace PojectKalkulator
         String strDisplay;
         Double temp;
         String operasi;
+        bool isOn = false;
 
         public FormKalkulator()
         {
@@ -16,6 +18,7 @@ namespace PojectKalkulator
             strDisplay = "";
             temp = 0.0;
             operasi = "";
+            isOn = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -184,13 +187,51 @@ namespace PojectKalkulator
 
         private void buttonPlusMinus_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(strDisplay)) // Pastikan strDisplay tidak kosong
+            if (!string.IsNullOrEmpty(textBox1.Text))
             {
-                if (double.TryParse(strDisplay, NumberStyles.Any, CultureInfo.InvariantCulture, out double number))
+                if (textBox1.Text.StartsWith("-"))
                 {
-                    number = -number; // Ubah tanda angka
-                    strDisplay = number.ToString(CultureInfo.InvariantCulture); // Perbarui strDisplay
-                    textBox1.Text = strDisplay; // Tampilkan di textBox1
+                    // Jika sudah ada tanda "-", hapus tanda negatifnya
+                    textBox1.Text = textBox1.Text.Substring(1);
+                }
+                else
+                {
+                    // Jika tidak ada tanda "-", tambahkan tanda negatif di depan angka
+                    textBox1.Text = "-" + textBox1.Text;
+                }
+            }
+        }
+
+        private void buttonOnOff_Click(object sender, EventArgs e)
+        {
+            if (isOn)
+            {
+                // Jika tombol sedang menyala, matikan kalkulator
+                isOn = false;
+                textBox1.Text = "";
+                strDisplay = "";
+                temp = 0;
+                operasi = "";
+
+                // Nonaktifkan semua tombol kecuali ON/OFF
+                foreach (Control c in this.Controls)
+                {
+                    if (c is Button && c != buttonOnOff)
+                    {
+                        c.Enabled = false;
+                    }
+
+                }
+            }
+            else
+            {
+                isOn = true;
+                textBox1.Text = "0";
+
+                // Aktifkan semua tombol kembali
+                foreach (Control c in this.Controls)
+                {
+                    c.Enabled = true;
                 }
             }
         }

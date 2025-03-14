@@ -350,6 +350,7 @@
             buttonOnOff.TabIndex = 16;
             buttonOnOff.Text = "On/Off";
             buttonOnOff.UseVisualStyleBackColor = false;
+            buttonOnOff.Click += buttonOnOff_Click;
             // 
             // textBox1
             // 
