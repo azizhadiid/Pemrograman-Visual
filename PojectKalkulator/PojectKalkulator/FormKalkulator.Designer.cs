@@ -363,10 +363,11 @@
             textBox1.Location = new Point(32, 79);
             textBox1.Name = "textBox1";
             textBox1.ReadOnly = true;
-            textBox1.RightToLeft = RightToLeft.Yes;
+            textBox1.RightToLeft = RightToLeft.No;
             textBox1.Size = new Size(498, 128);
             textBox1.TabIndex = 20;
             textBox1.Text = "0";
+            textBox1.TextAlign = HorizontalAlignment.Right;
             // 
             // FormKalkulator
             // 
